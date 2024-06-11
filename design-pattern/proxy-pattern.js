@@ -107,3 +107,34 @@ tempProxy.nickname;
 tempProxy.position;
 tempProxy.nickname = "Player";
 tempProxy.position = "MidFielder";
+
+// 유효성 검사 추가
+const snack = {
+  name: "chocochip",
+  price: 2000,
+};
+
+const snackProxy = new Proxy(snack, {
+  get: (obj, prop) => {
+    !obj[prop]
+      ? console.log("Property does not exist at obj")
+      : console.log(`The value of ${prop} is ${obj[prop]}`);
+  },
+
+  set: (obj, prop, value) => {
+    if (prop === "name" && typeof value !== "string") {
+      console.log("name is have to String!");
+    } else if (prop === "price" && value < 10) {
+      console.log("The price is so Cheap!! Check please");
+    } else {
+      console.log(`${prop} is changed from ${obj[prop]} to ${value}`);
+      obj[prop] = value;
+    }
+  },
+});
+
+snackProxy.temp;
+snackProxy.name = 5;
+snackProxy.price = 9;
+snackProxy.name = "strawberryCookie";
+snackProxy.price = 5000;
