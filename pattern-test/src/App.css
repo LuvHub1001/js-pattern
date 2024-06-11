@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  font-weight: 200;
+  font-display: "swap";
+  src: url("./assets/fonts/Pretendard-Regular.woff2"), format("woff2"),
+    local("Pretendard-Regular.woff2");
+}
+
+* {
+  font-family: "Pretendard-Regular";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #232323;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #232323;
+}
+
+button {
+  margin: 0 30px !important;
+}
+
+label {
+  color: white;
+}
+
+.Toastify__toast-container {
+  padding: 0;
+  width: 150px;
+}
+
+.Toastify__toast--default {
+  background-color: #171717;
+  color: white;
+  font-size: 12px;
+}
