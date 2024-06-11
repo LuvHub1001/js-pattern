@@ -21,7 +21,7 @@ class Observable {
   }
 
   unsubscribe(func) {
-    this.observers = this.observers.filter((observers) => observers !== func); // 배열에 제거
+    this.observers = this.observers.filter((observer) => observer !== func); // 배열에 제거
   }
 
   notify(data) {
