@@ -66,3 +66,38 @@ tempProxy.age;
 tempProxy.age = 30;
 tempProxy.name;
 tempProxy.name = "Hello";
+
+const test = {
+  subject: "programming",
+  score: 20,
+  grade: "D",
+};
+
+const testProxy = new Proxy(test, {
+  get: (obj, prop) => {
+    !obj[prop]
+      ? console.log(`A property ${prop} is not exist at obj`)
+      : console.log(`The value of ${prop} is ${obj[prop]}`);
+  },
+
+  set: (obj, prop, value) => {
+    if (prop === "subject" && typeof value !== "string") {
+      console.log("subject name must be string!");
+    } else if (prop === "score" && typeof value !== "number") {
+      console.log("score must be number!");
+    } else if (prop === "grade" && value.length > 2) {
+      console.log("grade length is too long!");
+    } else {
+      console.log(`${prop} is Changed from ${obj[prop]} to ${value}`);
+      obj[prop] = value;
+    }
+  },
+});
+
+testProxy.age;
+testProxy.subject = 300;
+testProxy.score = "100";
+testProxy.grade = "A++";
+testProxy.grade = "A+";
+testProxy.score = 100;
+testProxy.subject = "Math";
