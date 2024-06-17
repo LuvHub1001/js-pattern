@@ -4,7 +4,7 @@
  * 3. notify
  */
 
-class Observable {
+class Observerable {
   constructor() {
     this.observers = [];
   }
@@ -22,4 +22,4 @@ class Observable {
   }
 }
 
-export default new Observable();
+export default new Observerable();
