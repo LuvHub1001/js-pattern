@@ -1,4 +1,6 @@
 /**
+ * Observers
+ *
  * 1. subscribe
  * 2. unsubscribe
  * 3. notify
@@ -21,5 +23,3 @@ class Observerable {
     this.observers.forEach((observer) => observer(data));
   }
 }
-
-export default new Observerable();
